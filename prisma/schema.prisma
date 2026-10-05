@@ -1,0 +1,34 @@
+// Tarot, Melek ve Katina kartları için veritabanı şeması
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum DeckType {
+  TAROT
+  ANGEL
+  KATINA
+}
+
+model Card {
+  id            Int      @id @default(autoincrement())
+  deck          DeckType
+  slug          String
+  name          String
+  number        Int
+  suit          String?
+  imageUrl      String?
+  keywords      String[]
+  meaningGeneral String  @db.Text
+  meaningLove    String  @db.Text
+  meaningCareer  String  @db.Text
+  createdAt     DateTime @default(now())
+
+  @@unique([deck, slug])
+  @@index([deck, number])
+}
