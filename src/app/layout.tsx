@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Cinzel } from "next/font/google";
+import { Geist_Mono, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -12,15 +14,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const cinzel = Cinzel({
-  variable: "--font-cinzel",
-  subsets: ["latin", "latin-ext"],
-});
-
 export const metadata: Metadata = {
   title: {
-    default: "Tarot Falı - Ücretsiz Online Tarot, Melek ve Katina Kartları",
-    template: "%s | Tarot Falı",
+    default: "tarotbacilar - Ücretsiz Online Tarot, Melek ve Katina Kartları",
+    template: "%s | Tarotbacılar",
   },
   description:
     "Ücretsiz online tarot, melek ve katina kartı falı. Tek kart, 3 kart, Kelt Haçı ve daha fazla açılımla aşk, kariyer ve genel konularda kartlarını aç.",
@@ -30,9 +27,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="tr"
-      className={`${geistSans.variable} ${geistMono.variable} ${cinzel.variable} h-full antialiased`}
+      className={`${cormorant.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col font-[family-name:var(--font-cormorant)] text-lg">
+            <Header />
+        {children}
+      </body>
     </html>
   );
 }

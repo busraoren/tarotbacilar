@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Mistik renk paleti */
-  --color-night-950: #07040f;
-  --color-night-900: #0e0820;
-  --color-night-800: #170f33;
-  --color-night-700: #241a4a;
-  --color-violet-glow: #8b5cf6;
-  --color-gold-300: #f2dca0;
-  --color-gold-400: #e6c36a;
-  --color-gold-500: #c9a24a;
-  --color-mist: #cfc6e8;
+  /* Parşömen paleti (fotoğraftaki tasarımdan) */
+  --color-parchment-50: #faf3e6;
+  --color-parchment-100: #f3e7d3;
+  --color-parchment-200: #ead9bb;
+  --color-parchment-300: #dcc499;
+  --color-bronze-400: #c9a26a;
+  --color-bronze-500: #b8894a;
+  --color-bronze-600: #8f6736;
+  --color-bronze-700: #7a5230;
+  --color-ink: #4a3422;
+  --color-sepia: #8a6a4a;
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -31,24 +32,24 @@
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
-  background: var(--color-night-950);
+  background: var(--color-parchment-100);
 }
 
 body {
   min-height: 100vh;
-  color: var(--color-mist);
-  background-color: var(--color-night-950);
+  color: var(--color-ink);
+  background-color: var(--color-parchment-100);
   background-image:
-    radial-gradient(ellipse at 20% 10%, rgba(139, 92, 246, 0.18), transparent 50%),
-    radial-gradient(ellipse at 80% 90%, rgba(201, 162, 74, 0.1), transparent 50%);
+    radial-gradient(ellipse at 15% 10%, rgba(255, 255, 255, 0.55), transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(201, 162, 106, 0.25), transparent 55%);
   background-attachment: fixed;
 }
 
 ::selection {
-  background: rgba(139, 92, 246, 0.45);
-  color: #fff;
+  background: rgba(184, 137, 74, 0.35);
+  color: var(--color-ink);
 }
